@@ -6,7 +6,7 @@
 
 .. raw:: html
 
-	<h1>manno:  A Lightweight Annotation Protocol for the Open Connectome Project using CAJAL and ITK-Snap</h1>
+	<h1>manno:  A Lightweight Annotation Protocol for the Open Connectome Project using ITK-Snap and CAJAL </h1>
 	<br>
 
 
