@@ -23,7 +23,7 @@ manno provides a protocol for creating Open Connectome Project compatible manual
   <div>
     <img style="width:30px;height:30px;vertical-align:middle">
     <span style=""></span>
-    <IMG SRC="_static/GitHub.png" height="50" width="50"> <a ref="https://github.com/openconnectome/manno/zipball/master"> [ZIP]   </a>  
+    <IMG SRC="_static/GitHub.png" height="50" width="50"> <a href="https://github.com/openconnectome/manno/zipball/master"> [ZIP]   </a>  
     <a image="_static/GitHub.png" href="https://github.com/openconnectome/manno/tarball/master">[TAR.GZ] </a></p>
   </div>
 
