@@ -1,4 +1,4 @@
-MANNO Functions
+manno Functions
 **********************
 
 .. automodule:: code
