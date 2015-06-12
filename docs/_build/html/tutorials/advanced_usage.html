@@ -1,0 +1,370 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced Usage &mdash; m2g v1.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/ocp_favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="m2g v1.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Validation" href="validation.html"/>
+        <link rel="prev" title="Basic Usage" href="basic_usage.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../index.html" class="icon icon-home"> m2g
+        
+
+        
+          
+          <img src="../_static/ocp_main.png" class="logo" />
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx/local_config.html">Single Node Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#basic-package-update-and-install">Basic Package Update and Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#install-and-configure-python-2-7">Install and Configure Python 2.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#basics-for-development">Basics for Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#oracle-java-install">Oracle Java Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#java-setup">Java Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#camino-and-fsl">Camino and FSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#igraph">igraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#m2g-setup">m2g setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/local_config.html#export-paths-and-setup-environment">Export Paths and Setup Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx/cloud_computing.html">Cloud Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx/ocp.html">OCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/ocp.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/ocp.html#style-guides">Style Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sphinx/ocp.html#ocp-support-forums">OCP Support Forums</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx/faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="input_data.html">Data Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_data.html#input-data">Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_data.html#output-data">Output Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="available_data.html">Public Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic_usage.html">Basic Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#m2g-complete-pipeline">m2g Complete Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#m2g-registration-pipeline">m2g Registration Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_usage.html#m2g-diffusion-processing-pipeline">m2g Diffusion Processing Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Advanced Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#dti-preprocessing">DTI Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diffusion-processing">Diffusion Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Reading</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api/functions.html">Function Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/bet.html">FSL Brain Extraction Tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/bet.html#pseudocode">Pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/bet.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/flirt.html">FSL Linear Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/parse_b.html">Parse B-values/vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/extract_b0.html">Extract B0 Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/eddycorrect.html">FSL Eddy Correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/tensor_gen.html">DTI Tensor Estimation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/tensor_gen.html#pseudocode">Pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/tensor_gen.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/fiber_gen.html">Fiber Tractography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/fiber_gen.html#pseudocode">Pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/fiber_gen.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/fiber_convert.html">Fiber Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/gengraph.html">Graph Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/gengraph.html#intuition-behind-graph-generation">Intuition Behind Graph Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/gengraph.html#pseudocode">Pseudocode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/setup.html">Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://gitter.im/openconnectome/m2g">Gitter chatroom</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://groups.google.com/forum/#!forum/ocp-support/">Mailing List</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/openconnectome/m2g">Github repo</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/openconnectome/m2g/releases/">Release Notes</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">m2g</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Advanced Usage</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorials/advanced_usage.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="advanced-usage">
+<h1>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h1>
+<p>The code blocks below act as a walkthrough of how to run the m2g pipeline incrementally. Before beginning, please ensure that you have installed the pipeline either locally or on a cluster, and have checked out the basic usage page. Timing estimates are also provided based on how long it takes on a desktop machine with 64 GB of RAM and 12 virtual CPU cores. Evaluating the pipeline for a single subject will, at it&#8217;s peak, consume approximately 4 GB of RAM and fully load 2 CPU cores.</p>
+<p><strong>Data Path</strong></p>
+<p>Before beginning processing, it is often convenient to establish some system variables that keep track of where you will be grabbing/pushing data throughout the pipeline. In this case, we&#8217;re assuming that you are using the MNI152 atlas provided in m2g, as well as the desikan labels, that your raw data is stored in the /data directory, and that M2G_HOME variable has already been set during setup.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">M2G_HOME</span><span class="o">=</span>/mrimages/src/m2g
+<span class="c">#Working output directory</span>
+<span class="nv">DATA</span><span class="o">=</span>/data
+<span class="c">#Structural image</span>
+<span class="nv">MPRAGE</span><span class="o">=</span>/data/MPRAGE.nii
+<span class="c">#Diffusion image and scanner params</span>
+<span class="nv">DTI</span><span class="o">=</span>/data/DTI.nii
+<span class="nv">BVAL</span><span class="o">=</span>/data/DTI.b
+<span class="nv">BVEC</span><span class="o">=</span>/data/DTI.bvec
+<span class="c">#Atlas image and labels</span>
+<span class="nv">MNI</span><span class="o">=</span><span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/data/Atlas/MNI152_T1_1mm.nii.gz
+<span class="nv">MASK</span><span class="o">=</span><span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/data/Atlas/MNI152_T1_1mm_brain_mask.nii
+<span class="nv">LABELS</span><span class="o">=</span><span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/data/Atlas/MNI152_T1_1mm_desikan_adjusted.nii
+</pre></div>
+</div>
+<div class="section" id="dti-preprocessing">
+<h2>DTI Preprocessing<a class="headerlink" href="#dti-preprocessing" title="Permalink to this headline">¶</a></h2>
+<p><strong>Parse B values</strong></p>
+<p>In order to identify where the B0 volume is in the DTI image stack, the B-value intensity of the non-B0 scans, and properly format the gradient files to be compatible with our tensor estimation, we must first parse these files directly. LONI will automatically string parse the outputs to command line of these values, but as you are running this manually you will need to manually store them in variables. Expect this to take under a second.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">BVEC_NEW</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/new.bvec
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/packages/dtipreproc/parse_b.py <span class="si">${</span><span class="nv">BVAL</span><span class="si">}</span> <span class="si">${</span><span class="nv">BVEC</span><span class="si">}</span> <span class="si">${</span><span class="nv">BVEC_NEW</span><span class="si">}</span>
+<span class="c">#in our dataset we saw the following:</span>
+<span class="nv">B</span><span class="o">=</span>700
+<span class="nv">B0</span><span class="o">=</span>32
+</pre></div>
+</div>
+<p><strong>Extract B0</strong></p>
+<p>Once we know the location of the B0 volume, we are able to extract it from the DTI image stack. This will be used for aligning the DTI volumes to the structural MPRAGE volume. Expect this to take approximately a second.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">B0_vol</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/B0volume.nii.gz
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/packages/dtipreproc/extract_b0.py <span class="si">${</span><span class="nv">DTI</span><span class="si">}</span> <span class="si">${</span><span class="nv">B0</span><span class="si">}</span> <span class="si">${</span><span class="nv">B0_vol</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Eddy Correction</strong></p>
+<p>Before processing our diffusion data, we perform both chromatic alignment and internal spatial alignment. In other words, we correct for noise in the image acquisition as well as align all of the DTI volumes to each other. This will take different amounts of time depending on the number of diffusion directions in your image. For instance, if there are 34 diffusion directions this takes approximately 22 minutes.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">DTI_aligned</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/DTI_aligned.nii.gz
+eddy_correct <span class="si">${</span><span class="nv">DTI</span><span class="si">}</span> <span class="si">${</span><span class="nv">DTI_aligned</span><span class="si">}</span> <span class="si">${</span><span class="nv">B0</span><span class="si">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="registration">
+<h2>Registration<a class="headerlink" href="#registration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Register B0 to MPRAGE; MPRAGE to Atlas</strong></p>
+<p>In parallel to aligning the DTI volumes, we compute the transform that will register the B0 volume - and effectively the entire DTI stack - to the MPRAGE image, and then from the MPRAGE space to your atlas space. Each registration takes approximately 10 minutes to complete.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">B0_in_MP</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/B0_in_MPRAGE.nii.gz
+<span class="nv">txm1</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/b0_mp.xfm
+flirt -in <span class="si">${</span><span class="nv">B0</span><span class="si">}</span> -ref <span class="si">${</span><span class="nv">MPRAGE</span><span class="si">}</span> -out <span class="si">${</span><span class="nv">B0_in_MP</span><span class="si">}</span> -omat <span class="si">${</span><span class="nv">txm1</span><span class="si">}</span> -cost normmi -searchrx -180 <span class="m">180</span> -searchry -180 <span class="m">180</span> -searchrz -180 180
+
+<span class="nv">MP_in_MNI</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/MPRAGE_in_MNI.nii.gz
+<span class="nv">txm2</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/mp_mni.xfm
+flirt -in <span class="si">${</span><span class="nv">MPRAGE</span><span class="si">}</span> -ref <span class="si">${</span><span class="nv">MNI</span><span class="si">}</span> -out <span class="si">${</span><span class="nv">MP_in_MNI</span><span class="si">}</span> -omat <span class="si">${</span><span class="nv">txm2</span><span class="si">}</span> -cost normmi -searchrx -180 <span class="m">180</span> -searchry -180 <span class="m">180</span> -searchrz -180 180
+</pre></div>
+</div>
+<p><strong>Apply registration to DTI</strong></p>
+<p>The transforms which were computed in the previous step are now applied to the 4D DTI volume, concluding the preprocessing of the DTI data. Applying the transforms to the DTI volume stack takes approximately 3 minutes for an image with 34 diffusion directions.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">DTI_in_MP</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/DTI_in_MPRAGE.nii.gz
+<span class="nv">DTI_in_MNI</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/DTI_in_MNI.nii.gz
+flirt -in <span class="si">${</span><span class="nv">DTI_aligned</span><span class="si">}</span> -ref <span class="si">${</span><span class="nv">MPRAGE</span><span class="si">}</span> -out <span class="si">${</span><span class="nv">DTI_in_MP</span><span class="si">}</span> -init <span class="si">${</span><span class="nv">txm1</span><span class="si">}</span> -applyxfm -paddingsize 0.0
+
+flirt -in <span class="si">${</span><span class="nv">DTI_in_MP</span><span class="si">}</span> -ref <span class="si">${</span><span class="nv">MNI</span><span class="si">}</span> -out <span class="si">${</span><span class="nv">DTI_in_MNI</span><span class="si">}</span> -init <span class="si">${</span><span class="nv">txm2</span><span class="si">}</span> -applyxfm -paddingsize 0.0
+</pre></div>
+</div>
+</div>
+<div class="section" id="diffusion-processing">
+<h2>Diffusion Processing<a class="headerlink" href="#diffusion-processing" title="Permalink to this headline">¶</a></h2>
+<p><strong>Tensor estimation</strong></p>
+<p>The first step in processing diffusion data is to estimate tensors at each voxel. This will compress the 4D DTI images into a single 3D image with a tensor at each voxel. Expect tensor estimation to take approximately 5 minutes.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">SCHEME</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/scheme.scheme
+<span class="nv">DTI_BFLOAT</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/DTI.Bfloat
+<span class="nv">TENSORS</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/DTI_tensors.Bdouble
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/packages/tractography/tensor_gen.py <span class="si">${</span><span class="nv">DTI_in_MNI</span><span class="si">}</span> <span class="si">${</span><span class="nv">BVEC_NEW</span><span class="si">}</span> <span class="si">${</span><span class="nv">B</span><span class="si">}</span> <span class="si">${</span><span class="nv">MASK</span><span class="si">}</span> <span class="si">${</span><span class="nv">SHEME</span><span class="si">}</span> <span class="si">${</span><span class="nv">DTI_BFLOAT</span><span class="si">}</span> <span class="si">${</span><span class="nv">TENSORS</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Fiber tractography</strong></p>
+<p>The tensors computed in the prevoius step are traversed and fiber tracts, or streamlines, are formed. This step takes quite a long time, and the status can be monitored by viewing the log file with the cat command. This step is by far the slowest in the pipeline, and you should expect it to take approximately 1-2 hours. If you&#8217;re computing this remotely via ssh, it is recommended to use the screen command to avoid being disconnected.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">FIBERS</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/fibers.Bfloat
+<span class="nv">VTK</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/fibers.vtk
+<span class="nv">LOG</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/logfile.log
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/packages/tractography/fiber_gen.py <span class="si">${</span><span class="nv">TENSORS</span><span class="si">}</span> <span class="si">${</span><span class="nv">MASK</span><span class="si">}</span> 0.2 <span class="m">70</span> <span class="si">${</span><span class="nv">FIBERS</span><span class="si">}</span> <span class="si">${</span><span class="nv">VTK</span><span class="si">}</span> <span class="si">${</span><span class="nv">LOG</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Fiber conversion</strong></p>
+<p>The format of the fibers produced by Camino in the previous step is incompatible with the graph generation code which we use, so the format must be converted as follows. Converting fiber formats should take approximately 2 minutes.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">FIBERS_NEW</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/fibers.dat
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/packages/tractography/fiber_convert.py <span class="si">${</span><span class="nv">FIBERS</span><span class="si">}</span> <span class="si">${</span><span class="nv">FIBERS_NEW</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Graph generation</strong></p>
+<p>The fibers are tracked through the brain and edges are added to a graph. For each region a fiber passes through, an edge is added in the adjacency matrix. Graph generation should take approximately 5-10 minutes.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">GRAPH</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/graph.graphml
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/MR-OCP/mrcap/gengraph.py <span class="si">${</span><span class="nv">FIBERS_NEW</span><span class="si">}</span> <span class="si">${</span><span class="nv">LABELS</span><span class="si">}</span> <span class="si">${</span><span class="nv">GRAPH</span><span class="si">}</span> --outformat graphml -a <span class="si">${</span><span class="nv">LABELS</span><span class="si">}</span>
+</pre></div>
+</div>
+<p><strong>Graph conversion</strong></p>
+<p>If you prefer to work with graphs in the matlab compatible mat format, then run this conversion script which will parse the graphml for you. Graph conversion should take less than 1 minute.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">GRAPH_NEW</span><span class="o">=</span><span class="si">${</span><span class="nv">DATA</span><span class="si">}</span>/graph.mat
+python2.7 <span class="si">${</span><span class="nv">M2G_HOME</span><span class="si">}</span>/packages/utils/graphml2mat.py <span class="si">${</span><span class="nv">GRAPH</span><span class="si">}</span> <span class="si">${</span><span class="nv">GRAPH_NEW</span><span class="si">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="validation.html" class="btn btn-neutral float-right" title="Validation" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="basic_usage.html" class="btn btn-neutral" title="Basic Usage" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Open Connectome Project.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v1.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

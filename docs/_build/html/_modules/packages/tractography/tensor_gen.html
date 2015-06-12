@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>packages.tractography.tensor_gen &mdash; m2g v1.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../../_static/ocp_favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="m2g v1.1.0 documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+
+        
+          <a href="../../../index.html" class="icon icon-home"> m2g
+        
+
+        
+          
+          <img src="../../../_static/ocp_main.png" class="logo" />
+        
+        </a>
+
+        
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+          
+          
+              <p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../sphinx/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sphinx/local_config.html">Single Node Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#basic-package-update-and-install">Basic Package Update and Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#install-and-configure-python-2-7">Install and Configure Python 2.7</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#basics-for-development">Basics for Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#oracle-java-install">Oracle Java Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#java-setup">Java Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#camino-and-fsl">Camino and FSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#igraph">igraph</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#m2g-setup">m2g setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/local_config.html#export-paths-and-setup-environment">Export Paths and Setup Environment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sphinx/cloud_computing.html">Cloud Services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sphinx/ocp.html">OCP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/ocp.html#contributing">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/ocp.html#style-guides">Style Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sphinx/ocp.html#ocp-support-forums">OCP Support Forums</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sphinx/faq.html">Frequently Asked Questions (FAQ)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/input_data.html">Data Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/input_data.html#input-data">Input Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/input_data.html#output-data">Output Data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/available_data.html">Public Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/basic_usage.html">Basic Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/basic_usage.html#m2g-complete-pipeline">m2g Complete Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/basic_usage.html#m2g-registration-pipeline">m2g Registration Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/basic_usage.html#m2g-diffusion-processing-pipeline">m2g Diffusion Processing Pipeline</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/advanced_usage.html">Advanced Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/advanced_usage.html#dti-preprocessing">DTI Preprocessing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/advanced_usage.html#registration">Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tutorials/advanced_usage.html#diffusion-processing">Diffusion Processing</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tutorials/validation.html">Validation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Further Reading</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../api/functions.html">Function Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/bet.html">FSL Brain Extraction Tool</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/bet.html#pseudocode">Pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/bet.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/flirt.html">FSL Linear Registration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/parse_b.html">Parse B-values/vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/extract_b0.html">Extract B0 Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/eddycorrect.html">FSL Eddy Correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/tensor_gen.html">DTI Tensor Estimation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tensor_gen.html#pseudocode">Pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/tensor_gen.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/fiber_gen.html">Fiber Tractography</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/fiber_gen.html#pseudocode">Pseudocode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/fiber_gen.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/fiber_convert.html">Fiber Converter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/gengraph.html">Graph Generation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/gengraph.html#intuition-behind-graph-generation">Intuition Behind Graph Generation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../api/gengraph.html#pseudocode">Pseudocode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api/setup.html">Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://gitter.im/openconnectome/m2g">Gitter chatroom</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://groups.google.com/forum/#!forum/ocp-support/">Mailing List</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/openconnectome/m2g">Github repo</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/openconnectome/m2g/releases/">Release Notes</a></li>
+</ul>
+
+          
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../index.html">m2g</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      
+    <li>packages.tractography.tensor_gen</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <h1>Source code for packages.tractography.tensor_gen</h1><div class="highlight"><pre>
+<span class="c">#!/usr/bin/env python</span>
+
+<span class="c"># Copyright 2015 Open Connectome Project (http://openconnecto.me)</span>
+<span class="c">#</span>
+<span class="c"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c"># you may not use this file except in compliance with the License.</span>
+<span class="c"># You may obtain a copy of the License at</span>
+<span class="c">#</span>
+<span class="c">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c">#</span>
+<span class="c"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c"># See the License for the specific language governing permissions and</span>
+<span class="c"># limitations under the License.</span>
+<span class="c">#</span>
+
+<span class="c"># dti2tens.py</span>
+<span class="c"># Created by Greg Kiar on 2015-01-09.</span>
+<span class="c"># Email: gkiar@jhu.edu</span>
+<span class="c"># Copyright (c) 2015. All rights reserved.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Computes tensors from DTI image</span>
+
+<span class="sd">We leverage Camino&#39;s tensor estimation tool to compute the tensors at each voxel within the DTI volumes. The tensors are computed using standard methods of estimation: performing multiple linear regression on the equation relating the diffusion direction matrix of the voxel, the b-vectors, and the voxel intensities across different imposed b-fields.</span>
+
+<span class="sd">Camino&#39;s dtfit documentation: http://cmic.cs.ucl.ac.uk/camino/index.php?n=Man.Dtfit</span>
+
+<span class="sd">**Inputs**</span>
+
+<span class="sd">		DTI Image: [nifti]</span>
+<span class="sd">				- Corrected DTI X x Y x Z x D volume</span>
+<span class="sd">		B-vectors: [ASCII]</span>
+<span class="sd">				- Field direction vectors for each volume in DTI image.</span>
+<span class="sd">		B-values: [ASCII]</span>
+<span class="sd">				- List of b-values corresponding to the b-vectors.</span>
+<span class="sd">		Brain mask: [nifti]</span>
+<span class="sd">				- Binary labels identifying region of the image which contains brain tissue.</span>
+
+<span class="sd">**Outputs**</span>
+
+<span class="sd">		Tensors: [Bdouble]</span>
+<span class="sd">				- List of tensors for each voxel in the source DTI image.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+
+<span class="c"># Load necessary packages</span>
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span>
+<span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">system</span>
+<span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">basename</span><span class="p">,</span> <span class="n">splitext</span>
+
+
+<div class="viewcode-block" id="make_tens"><a class="viewcode-back" href="../../../api/tensor_gen.html#packages.tractography.tensor_gen.make_tens">[docs]</a><span class="k">def</span> <span class="nf">make_tens</span><span class="p">(</span><span class="n">dti</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">bval</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">scheme</span><span class="p">,</span> <span class="n">dti_bfloat</span><span class="p">,</span> <span class="n">tensors</span><span class="p">):</span> <span class="c">#, fa, md, eigs):</span>
+
+	<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">	Computes tensors from DTI image</span>
+<span class="sd">	</span>
+<span class="sd">	We leverage Camino&#39;s tensor estimation tool to compute the tensors at each voxel within the DTI volumes. The tensors are computed using standard methods of estimation: performing multiple linear regression on the equation relating the diffusion direction matrix of the voxel, the b-vectors, and the voxel intensities across different imposed b-fields.</span>
+<span class="sd">	</span>
+<span class="sd">	Camino&#39;s dtfit documentation: http://cmic.cs.ucl.ac.uk/camino/index.php?n=Man.Dtfit</span>
+<span class="sd">	</span>
+<span class="sd">	**Inputs**</span>
+<span class="sd">	</span>
+<span class="sd">			DTI Image: [nifti]</span>
+<span class="sd">					- Corrected DTI X x Y x Z x D volume</span>
+<span class="sd">			B-vectors: [ASCII]</span>
+<span class="sd">					- Field direction vectors for each volume in DTI image.</span>
+<span class="sd">			B-values: [ASCII]</span>
+<span class="sd">					- List of b-values corresponding to the b-vectors.</span>
+<span class="sd">			Brain mask: [nifti]</span>
+<span class="sd">					- Binary labels identifying region of the image which contains brain tissue.</span>
+<span class="sd">	</span>
+<span class="sd">	**Outputs**</span>
+<span class="sd">	</span>
+<span class="sd">			Tensors: [Bdouble]</span>
+<span class="sd">					- List of tensors for each voxel in the source DTI image.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="c"># Create scheme file</span>
+	<span class="n">system</span><span class="p">(</span><span class="s">&#39;pointset2scheme -inputfile &#39;</span><span class="o">+</span><span class="n">grad</span><span class="o">+</span><span class="s">&#39; -bvalue &#39;</span><span class="o">+</span><span class="n">bval</span><span class="o">+</span><span class="s">&#39; -outputfile &#39;</span><span class="o">+</span><span class="n">scheme</span><span class="p">)</span>
+	
+	<span class="c"># Maps the DTI image to a Camino compatible Bfloat format</span>
+	<span class="n">system</span><span class="p">(</span><span class="s">&#39;image2voxel -4dimage &#39;</span><span class="o">+</span><span class="n">dti</span><span class="o">+</span><span class="s">&#39; -outputfile &#39;</span><span class="o">+</span><span class="n">dti_bfloat</span><span class="p">)</span>
+	
+	<span class="c"># Produce tensors from image</span>
+	<span class="n">system</span><span class="p">(</span><span class="s">&#39;dtfit &#39;</span><span class="o">+</span><span class="n">dti_bfloat</span><span class="o">+</span><span class="s">&#39; &#39;</span><span class="o">+</span><span class="n">scheme</span><span class="o">+</span><span class="s">&#39; -bgmask &#39;</span><span class="o">+</span><span class="n">mask</span><span class="o">+</span><span class="s">&#39; -outputfile &#39;</span><span class="o">+</span><span class="n">tensors</span><span class="p">)</span>
+	
+	<span class="c"># In order to visualize, and just &#39;cause it&#39;s fun anyways, we get some stats</span>
+
+	<span class="c">#[fa_base, ext] = splitext(basename(fa))</span>
+	<span class="c">#[md_base, ext] = splitext(basename(md))</span>
+	<span class="c">#system(&#39;for PROG in &#39;+fa+&#39; &#39;+md+&#39;; do cat &#39;+tensors+&#39; | ${PROG} | voxel2image -outputroot ${PROG} -header &#39;+dti+&#39;; done&#39;)</span>
+
+	<span class="c"># We also need the eigen system to visualize</span>
+	<span class="c">#system(&#39;cat &#39;+tensors+&#39; | dteig &gt; &#39;+eigs)</span>
+</div>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+  <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;dti&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The DTI image, not skull stripped (.nii)&quot;</span><span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;grad&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The gradient directions corresponding to the DTI image (.grad)&quot;</span><span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;bval&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The bvalue corresponding to the DTI image  (default 700)&quot;</span><span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;mask&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The brain mask of the DTI image (.nii, .nii.gz)&quot;</span><span class="p">)</span> 
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;scheme&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The scheme file (.scheme)&quot;</span><span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;dti_bfloat&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The Bfloat format equivalent of the DTI image (.Bfloat)&quot;</span><span class="p">)</span>
+  <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;tensors&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&quot;store&quot;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;The produced tensors in Bdouble format (.Bdouble)&quot;</span><span class="p">)</span>
+  <span class="c">#parser.add_argument(&quot;fa&quot;, action=&quot;store&quot;, help=&quot;The fractional anisotropy statistic (.nii)&quot;)</span>
+  <span class="c">#parser.add_argument(&quot;md&quot;, action=&quot;store&quot;, help=&quot;The mean diffusivity statistic (.nii)&quot;)</span>
+  <span class="c">#parser.add_argument(&quot;eigs&quot;, action=&quot;store&quot;, help=&quot;The eigen values of the system (.Bdouble)&quot;)</span>
+
+  <span class="n">result</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+  <span class="n">make_tens</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">dti</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">grad</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">bval</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">mask</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">scheme</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">dti_bfloat</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">tensors</span><span class="p">)</span><span class="c">#, result.fa, result.md, result.eigs)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, Open Connectome Project.
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'v1.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
