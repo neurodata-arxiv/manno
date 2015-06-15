@@ -10,7 +10,7 @@
 	<br>
 
 
-manno provides a protocol for creating Open Connectome Project compatible manual annotations, leveraging `ITK Snap <http://www.itksnap.org/>`_.  This tool allows users to quickly create and upload annotations to the Open Connectome Project for science, machine learning, and other applications.
+manno provides a protocol for creating Open Connectome Project compatible manual annotations, leveraging `ITK Snap <http://www.itksnap.org/>`_.  This tool allows users to quickly create and upload annotations to the Open Connectome Project for science, machine learning, and other applications.  This protocol uses the NIFTI format as a method to exchange data; other tools such as MRIStudio may also be able to use this protocol (but have not been extensively tested).
 
 
 .. figure:: images/manno_itk_example.jpg
