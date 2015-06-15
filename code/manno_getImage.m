@@ -28,10 +28,7 @@ function manno_getImage(server, token, queryFile, fileOut, useSemaphore)
 %
 %	Currently only uint8 image data is supported.  Multichannel data may
 %	produce unexpected results.
-%
-% **Author**
-%
-%	W. Gray Roncal
+
 
 if useSemaphore
     oo = OCP('semaphore');

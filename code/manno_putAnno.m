@@ -33,10 +33,6 @@ function manno_putAnno(server, token, queryFile, fileIn, protoRAMON, doConnComp,
 %
 %	Currently only uint8 image data is supported.  Multichannel data may
 %	produce unexpected results.
-%
-% **Author**
-%
-%	W. Gray Roncal
 
 
 nii = load_nii(fileIn);

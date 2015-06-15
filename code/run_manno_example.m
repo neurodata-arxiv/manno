@@ -6,9 +6,6 @@ function run_manno_example()
 % The result of this run can be viewed in a webbrowser using the following
 % URL: http://braingraph1dev.cs.jhu.edu/ocp/overlay/0.7/temp2/xy/1/5472,5972/8712,9212/1031/
 
-% **Author**
-%
-% W. Gray Roncal
 
 xstart = 5472;
 xstop = xstart + 512;
