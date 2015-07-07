@@ -12,7 +12,7 @@ Style Guides
 ~~~~~~~~~~~~
 
  - `Python code complies with PEP-8 <http://legacy.python.org/dev/peps/pep-0008/>`_
- - m2g follows the `style guidelines <http://w.ocp.me/style>`_ used by the Open Connectome Project 
+ - manno follows the `style guidelines <http://w.ocp.me/style>`_ used by the Open Connectome Project 
  - MATLAB code style is similar to that of MATHWorks authored functions.
 
 OCP Support Forums
