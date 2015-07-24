@@ -45,5 +45,10 @@ oo.setDefaultResolution(query.resolution);
 
 im = oo.query(query);
 im = permute(rot90(im.data,2),[2,1,3]);
-nii = make_nii(im);
+
+if isa(im, 'uint8') == 1
+    nii = make_nii(im, [1 1 1], [0 0 0], 2);
+else
+    nii = make_nii(im);
+end
 save_nii(nii, fileOut);
