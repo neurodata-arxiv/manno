@@ -19,26 +19,26 @@ manno provides a protocol for creating Open Connectome Project compatible manual
 
 
 .. raw:: html
- 
+
   <div>
     <img style="width:30px;height:30px;vertical-align:middle">
     <span style=""></span>
-    <IMG SRC="_static/GitHub.png" height="50" width="50"> <a href="https://github.com/openconnectome/manno/zipball/master"> [ZIP]   </a>  
+    <IMG SRC="_static/GitHub.png" height="50" width="50"> <a href="https://github.com/openconnectome/manno/zipball/master"> [ZIP]   </a>
     <a image="_static/GitHub.png" href="https://github.com/openconnectome/manno/tarball/master">[TAR.GZ] </a></p>
   </div>
 
 
-.. sidebar:: manno Contact Us 
-   
-   If you have questions about manno, or have data to analyze, let us know:  ocp-support@googlegroups.com
-   
+.. sidebar:: manno Contact Us
+
+   If you have questions about manno, or have data to analyze, let us know:  support@neurodata.io
+
 .. toctree::
    :maxdepth: 1
    :caption: Documentation
 
    sphinx/introduction
    sphinx/local_config
-   sphinx/ocp
+   sphinx/neurodata
    sphinx/faq
    tutorials/basic_usage
 
@@ -47,12 +47,8 @@ manno provides a protocol for creating Open Connectome Project compatible manual
    :caption: Further Reading
 
    api/functions
-   Gitter chatroom <https://gitter.im/openconnectome/manno>
-   Mailing List <https://groups.google.com/forum/#!forum/ocp-support/> 
    Github repo <https://github.com/openconnectome/manno>
    Release Notes <https://github.com/openconnectome/manno/releases/>
 
 .. If you use manno or its data derivatives, please cite:
 ..   W Gray Roncal, ZH Koterba, D Mhembere, DM Kleissas, JT Vogelstein, R Burns, AR Bowles, DK Donavos, S Ryman, RE Jung, L Wu, V Calhoun, RJ Vogelstein. MIGRAINE: MRI Graph Reliability Analysis and Inference for Connectomics. GlobalSIP, 2013 `arXiv <http://arxiv.org/abs/1312.4875>`_ `bibtex <http://openconnecto.me/data/public/MR/MIGRAINE_v1_0/migraine.bib>`_
-
-  

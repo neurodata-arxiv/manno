@@ -1,4 +1,4 @@
-function manno_putAnno(server, token, queryFile, fileIn, protoRAMON, doConnComp, useSemaphore)
+mafunction manno_putAnno(server, token, channel, queryFile, fileIn, protoRAMON, doConnComp, useSemaphore)
 % MANNO function to upload annotation data from ITK-Snap to OCP.
 %
 % **Inputs**
@@ -7,7 +7,10 @@ function manno_putAnno(server, token, queryFile, fileIn, protoRAMON, doConnComp,
 %		- OCP server where annotation data will reside
 %
 %	token: [string]
-%		- OCP token name token for annotation data 
+%		- OCP token name for the annotation data of interest
+%
+%	channel: [string]
+%		- OCP channel name for the annotation data of interest
 %
 %	queryFile: [string]
 %		- path and filename for queryFile.  Should be a MAT file containing one OCPQuery variable, named 'query'.  This should be the same as the queryFile used to cutout data
@@ -53,4 +56,4 @@ ANNO.setCutout(anno);
 ANNO.setResolution(query.resolution);
 ANNO.setXyzOffset([query.xRange(1),query.yRange(1),query.zRange(1)]);
 
-cubeUploadDense(server,token,ANNO,protoRAMON,useSemaphore)
+cubeUploadDense(server,token, channel, ANNO,protoRAMON,useSemaphore)

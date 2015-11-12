@@ -4,7 +4,7 @@ Basic Usage
 Protocol
 --------
 
-- Identify a region of interest in OCP, and note the data server, token, resolution, and coordinates
+- Identify a region of interest in OCP, and note the data server, token, channel, resolution, and coordinates
 - Create a query, using the instructions for CAJAL
 - Run *manno_getImage.m* to generate an image volume suitable for annotation in ITK Snap
 - Annotate: Once the data has been formatted for ITK Snap, the user should open the ITK SNAP application and load in the NIFTI data saved during the data acquisition step. Then using the brush tool, annotate the data as desired. Users can choose to use separate colors for each annotation or rely on a connected component post-processing step to identify each object (best for sparse data)
@@ -24,21 +24,16 @@ Example
 
 The following code demonstrates the manno protocol.  A few mitochondria have been labeled as an example.  The example script should take approximately 10 seconds to complete.
 
-.. code-block:: matlab
+.. code-block:: bash
 
   function run_manno_example()
-  % Mananno Example 
+  % Manno Example
   % manno starter to demonstrate protocol functionality.  All required inputs
   % are hardcoded for this demo.  Paths are hardcoded for Linux/Mac.
-  % 
-  % The result of this run can be viewed in a webbrowser using the following
-  % URL: http://braingraph1dev.cs.jhu.edu/ocp/overlay/0.7/temp2/xy/1/5472,5972/8712,9212/1031/
   %
-  % **Author**
-  %
-  % W. Gray Roncal
+  % This example should be run from the code directory because of the
+  % relative paths
 
-  %% test_query
   xstart = 5472;
   xstop = xstart + 512;
   ystart = 8712;
@@ -52,25 +47,49 @@ The following code demonstrates the manno protocol.  A few mitochondria have bee
   query.setType(eOCPQueryType.imageDense);
   query.setCutoutArgs([xstart, xstop],[ystart,ystop],[zstart,zstop],resolution);
 
+  save('../data/queryFileTest.mat','query')
   %% Servers and tokens - alter appropriately
   server = 'openconnecto.me';
   token = 'kasthuri11cc';
-
-  serverUp = 'braingraph1dev.cs.jhu.edu';
-  tokenUp = 'temp2';
-
+  channel = 'image';
+  serverUp = 'openconnecto.me';
+  tokenUp = 'manno';
+  channelUp = 'mito';
   %% Run manno
-  manno_getImage(server,token,'../data/queryFileTest','../data/testitk.nii',0)
-  % Manual annotation step happens here
-  manno_putAnno(serverUp,tokenUp,'../data/queryFileTest','../data/exampleAnno.nii.gz','RAMONOrganelle', 1,0)
+  manno_getImage(server,token,channel,'../data/queryFileTest','../data/testitk.nii',0)
 
+  % Manual annotation step happens here
+  manno_putAnno(serverUp,tokenUp,channelUp,'../data/queryFileTest','../data/mito_seg_example.nii.gz','RAMONOrganelle', 1,0)
 
 Validation
 ----------
 
-The result of the example script can be accessed using the following link:
-http://braingraph1dev.cs.jhu.edu/ocp/overlay/0.7/temp2/xy/1/5472,5972/8712,9212/1031/
+The result of the example script can be accessed using this `link <http://openconnecto.me/ocp/overlay/0.6/openconnecto.me/kasthuri11cc/image/openconnecto.me/manno/mito/xy/1/5472,5972/8712,9212/1031/>`_.
 
-Note that the server and token pair listed here are public and other data may be pre-existing.  
+Note that the server and token pair listed here are public but read-only and other data may be pre-existing.  Please create your own projects for testing and annotating!
 
-.. figure:: ../images/manno_example_result.png
+.. figure:: ../images/manno_example_v2.png
+
+Notes
+-----
+
+Currently, manno only supports 8-bit image data as input, and 32-bit annotation data as output.  If your data is another type (e.g., RGB32), please follow these steps to get your data into a NIFTI file.
+Once your data is in a NIFTI format, you can seamlessly use the rest of the protocol (annotation and upload).  We will be making additional enhancements to simplify this process in the coming months.
+
+- Get an HDF5 cutout of your data, following the instructions here:  http://docs.neurodata.io/open-connectome/api/data_api.html#get
+- Open your hdf5 file in matlab.  This can typically be accomplished with the following command:  `im = h5read(<path to data>, '/default/CUTOUT')`
+- If you have difficulty with this step, try viewing the structure of your data using `HDFView <https://www.hdfgroup.org/products/java/hdfview/>`_, a free cross-platform tool.
+- Next save your nifti data:
+
+.. code-block:: bash
+
+  nii = make_nii(im);
+  save_nii(nii, fileOut);
+
+- And finally be sure to manually create and save your query using the instructions provided in CAJAL (or the demo script):
+
+.. code-block:: bash
+
+  query = OCPQuery;
+  query.setType(eOCPQueryType.imageDense);
+  query.setCutoutArgs([xstart, xstop],[ystart,ystop],[zstart,zstop],resolution);
