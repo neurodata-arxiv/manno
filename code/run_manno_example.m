@@ -1,11 +1,13 @@
 function run_manno_example()
-% Mananno Example 
+% Manno Example 
 % manno starter to demonstrate protocol functionality.  All required inputs
 % are hardcoded for this demo.  Paths are hardcoded for Linux/Mac.
 % 
+% This example should be run from the code directory because of the
+% relative paths
+%
 % The result of this run can be viewed in a webbrowser using the following
-% URL: http://braingraph1dev.cs.jhu.edu/ocp/overlay/0.7/temp2/xy/1/5472,5972/8712,9212/1031/
-
+% URL: http://openconnecto.me/ocp/overlay/0.6/openconnecto.me/kasthuri11cc/image/openconnecto.me/manno/mito/xy/1/5472,5972/8712,9212/1031/
 
 xstart = 5472;
 xstop = xstart + 512;
@@ -20,14 +22,16 @@ query = OCPQuery;
 query.setType(eOCPQueryType.imageDense);
 query.setCutoutArgs([xstart, xstop],[ystart,ystop],[zstart,zstop],resolution);
 
+save('../data/queryFileTest.mat','query')
 %% Servers and tokens - alter appropriately
 server = 'openconnecto.me';
 token = 'kasthuri11cc';
-
-serverUp = 'braingraph1dev.cs.jhu.edu';
-tokenUp = 'temp2';
-
+channel = 'image';
+serverUp = 'openconnecto.me';
+tokenUp = 'manno';
+channelUp = 'mito';
 %% Run manno
-manno_getImage(server,token,'../data/queryFileTest','../data/testitk.nii',0)
+manno_getImage(server,token,channel,'../data/queryFileTest','../data/testitk.nii',0)
+
 % Manual annotation step happens here
-manno_putAnno(serverUp,tokenUp,'../data/queryFileTest','../data/exampleAnno.nii.gz','RAMONOrganelle', 1,0)
+manno_putAnno(serverUp,tokenUp,channelUp,'../data/queryFileTest','../data/mito_seg_example.nii.gz','RAMONOrganelle', 1,0)

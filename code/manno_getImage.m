@@ -1,4 +1,4 @@
-function manno_getImage(server, token, queryFile, fileOut, useSemaphore)
+function manno_getImage(server, token, channel, queryFile, fileOut, useSemaphore)
 % MANNO function to get OCP image data and format it to be
 % compatible with ITK-Snap.
 %
@@ -8,7 +8,10 @@ function manno_getImage(server, token, queryFile, fileOut, useSemaphore)
 %		- OCP server name hosting the image data of interest
 %
 %	token: [string]
-%		- OCP token name hosting the image data of interest
+%		- OCP token name for the annotation data of interest
+%
+%	channel: [string]
+%		- OCP channel name for the annotation data of interest
 %
 %	queryFile: [string]
 %		- path and filename for queryFile.  Should be a MAT file containing one OCPQuery variable, named 'query'
@@ -30,20 +33,10 @@ function manno_getImage(server, token, queryFile, fileOut, useSemaphore)
 %	produce unexpected results.
 
 
-if useSemaphore
-    oo = OCP('semaphore');
-else
-    oo = OCP();
-end
+cubeCutout(token, channel, queryFile, 'tempCutout', useSemaphore, 0, server)
 
-%load query
-load(queryFile)
-
-oo.setServerLocation(server);
-oo.setImageToken(token);
-oo.setDefaultResolution(query.resolution);
-
-im = oo.query(query);
+load('tempCutout')
+im = cube;
 im = permute(rot90(im.data,2),[2,1,3]);
 
 if isa(im, 'uint8') == 1
