@@ -47,8 +47,6 @@ manno provides a protocol for creating Open Connectome Project compatible manual
    :caption: Further Reading
 
    api/functions
-   Gitter chatroom <https://gitter.im/openconnectome/manno>
-   Mailing List <https://groups.google.com/forum/#!forum/ocp-support/>
    Github repo <https://github.com/openconnectome/manno>
    Release Notes <https://github.com/openconnectome/manno/releases/>
 

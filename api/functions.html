@@ -96,8 +96,6 @@
 <p class="caption"><span class="caption-text">Further Reading</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">manno Functions</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://gitter.im/openconnectome/manno">Gitter chatroom</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://groups.google.com/forum/#!forum/ocp-support/">Mailing List</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/openconnectome/manno">Github repo</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/openconnectome/manno/releases/">Release Notes</a></li>
 </ul>
@@ -177,6 +175,65 @@ compatible with ITK-Snap.</p>
 <dt>fileOut: [string]</dt>
 <dd><ul class="first last simple">
 <li>path and filename for NIFTI image file to use in ITK Snap for annotating</li>
+</ul>
+</dd>
+<dt>useSemaphore: [number][default=0]</dt>
+<dd><ul class="first last simple">
+<li>Throttles reading/writing client-side for large batch jobs.  Not needed in single cutout mode</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Outputs</strong></p>
+<blockquote>
+<div>No explicit outputs.  Output file is saved to disk rather than
+output as a variable to allow for downstream integration with LONI.</div></blockquote>
+<p><strong>Notes</strong></p>
+<blockquote>
+<div>Currently only uint8 image data is supported.  Multichannel data may
+produce unexpected results.</div></blockquote>
+</dd></dl>
+
+<dl class="function">
+<dt id="code.manno_putAnno">
+<code class="descclassname">code.</code><code class="descname">manno_putAnno</code><span class="sig-paren">(</span><em>server</em>, <em>token</em>, <em>channel</em>, <em>queryFile</em>, <em>fileIn</em>, <em>protoRAMON</em>, <em>doConnComp</em>, <em>useSemaphore</em><span class="sig-paren">)</span><a class="headerlink" href="#code.manno_putAnno" title="Permalink to this definition">¶</a></dt>
+<dd><p>MANNO function to upload annotation data from ITK-Snap to OCP.</p>
+<p><strong>Inputs</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>server: [string]</dt>
+<dd><ul class="first last simple">
+<li>OCP server where annotation data will reside</li>
+</ul>
+</dd>
+<dt>token: [string]</dt>
+<dd><ul class="first last simple">
+<li>OCP token name for the annotation data of interest</li>
+</ul>
+</dd>
+<dt>channel: [string]</dt>
+<dd><ul class="first last simple">
+<li>OCP channel name for the annotation data of interest</li>
+</ul>
+</dd>
+<dt>queryFile: [string]</dt>
+<dd><ul class="first last simple">
+<li>path and filename for queryFile.  Should be a MAT file containing one OCPQuery variable, named &#8216;query&#8217;.  This should be the same as the queryFile used to cutout data</li>
+</ul>
+</dd>
+<dt>fileIn: [string]</dt>
+<dd><ul class="first last simple">
+<li>path and filename for NIFTI segmentation file saved in ITK Snap</li>
+</ul>
+</dd>
+<dt>protoRAMON: [string]</dt>
+<dd><ul class="first last simple">
+<li>A prototype RAMONObject; each annotation object created will be based on this template (e.g., RAMONOrganelle, RAMONSynapse).  Users can set fields (e.g., author, confidence) by writing wrapper scripts</li>
+</ul>
+</dd>
+<dt>doConnComp: [number]</dt>
+<dd><ul class="first last simple">
+<li>If equal to 1, objects will be relabeled based on 3D (26-connected) voxels.  If set to 0, objects will be uploaded exactly as created.</li>
 </ul>
 </dd>
 <dt>useSemaphore: [number][default=0]</dt>
