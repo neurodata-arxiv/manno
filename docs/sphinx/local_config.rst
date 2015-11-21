@@ -14,8 +14,10 @@ In order to use this truthing protocol, users should have the following software
 
  .. code-block:: bash
 
-   run('/share0/cajal/tools/matlab_install/setupEnvironment.m')
-   run('/share0/cajal/cajal.m')
-   cajal.installToolbox('~/code/manno/setup.m')
+   run('<cajal rootdir>/tools/matlab_install/setupEnvironment.m')
+   run('<cajal rootdir>/cajal.m')
+   cajal.installToolbox('<manno rootdir>/setup.m')
 
 *This tool uses ITK-Snap for annotating, and MANNO+CAJAL to pull and push data appropriately.  It is not necessary for all annotators to use MATLAB and CAJAL, as long as they have a mechanism (such as a grad student) to help pull and push data.  Annotators only need to be able to load, annotate, and save within ITK Snap.*
+
+To get started with manno, please visit the Basic Usage Tab.
