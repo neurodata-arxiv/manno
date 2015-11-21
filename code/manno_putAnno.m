@@ -1,4 +1,4 @@
-mafunction manno_putAnno(server, token, channel, queryFile, fileIn, protoRAMON, doConnComp, useSemaphore)
+function manno_putAnno(server, token, channel, queryFile, fileIn, protoRAMON, doConnComp, useSemaphore)
 % MANNO function to upload annotation data from ITK-Snap to OCP.
 %
 % **Inputs**
@@ -22,7 +22,7 @@ mafunction manno_putAnno(server, token, channel, queryFile, fileIn, protoRAMON, 
 %		- A prototype RAMONObject; each annotation object created will be based on this template (e.g., RAMONOrganelle, RAMONSynapse).  Users can set fields (e.g., author, confidence) by writing wrapper scripts
 %
 %	doConnComp: [number]
-%		- If equal to 1, objects will be relabeled based on 3D (26-connected) voxels.  If set to 0, objects will be uploaded exactly as created. 
+%		- If equal to 1, objects will be relabeled based on 3D (26-connected) voxels.  If set to 0, objects will be uploaded exactly as created.
 %
 %	useSemaphore: [number][default=0]
 %		- Throttles reading/writing client-side for large batch jobs.  Not needed in single cutout mode
